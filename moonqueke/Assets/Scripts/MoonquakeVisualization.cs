@@ -7,7 +7,7 @@ public class MoonquakeVisualization : MonoBehaviour
     public GameObject template; // Assign the GameObject prefab you want to place here.
     public float latitude = 0.0f; // Latitude in degrees (-90 to 90).
     public float longitude = 0.0f; // Longitude in degrees (-180 to 180).
-    public float hoverHeight = 0.1f; // Height above the surface.
+    public float hoverHeight = 0.000000000000000000000001f; // Height above the surface.
     public List<MoonQuakeModel> moonQuakes = new List<MoonQuakeModel>();
 
     private int index = 0, max = 200;
@@ -23,6 +23,14 @@ public class MoonquakeVisualization : MonoBehaviour
         
     }
 
+    public void deleteMarker()
+    {
+        if (gameObjects != null)
+        {
+            GameObject.Destroy(gameObjects);
+            gameObjects = null;
+        }
+    }
     public Transform CreateMarker(float lat, float lon, string name)
     {
         if (gameObjects != null)
@@ -48,7 +56,7 @@ public class MoonquakeVisualization : MonoBehaviour
             rotation *= additionalRotation;
 
             // Calculate the final position with a slight offset above the surface.
-            Vector3 finalPosition = position + (normal * hoverHeight);
+            Vector3 finalPosition = position + (normal * 0.01f);
 
             // Instantiate the template at the calculated position with the rotation.
             gameObjects = Instantiate(template, finalPosition, rotation);

@@ -456,6 +456,14 @@ PrefabInstance:
       propertyPath: m_UiScaleMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5671463786934639662, guid: 23fedb5cc0d985243b5e328456ecb5d3, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 5671463786934639662, guid: 23fedb5cc0d985243b5e328456ecb5d3, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 5984041678236059906, guid: 23fedb5cc0d985243b5e328456ecb5d3, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5
@@ -703,11 +711,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8374986621282646116, guid: 60083ad586bb5cd4d8fc01db1598a22b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -340
+      value: -888
       objectReference: {fileID: 0}
     - target: {fileID: 8374986621282646116, guid: 60083ad586bb5cd4d8fc01db1598a22b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -169
+      value: -397
       objectReference: {fileID: 0}
     - target: {fileID: 8374986621282646116, guid: 60083ad586bb5cd4d8fc01db1598a22b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -968,15 +976,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012015927304, guid: 5c02591794acece409986647ed6329a7, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.05
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 4000012015927304, guid: 5c02591794acece409986647ed6329a7, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.05
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 4000012015927304, guid: 5c02591794acece409986647ed6329a7, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.05
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 4000012015927304, guid: 5c02591794acece409986647ed6329a7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1464,6 +1472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backButton: {fileID: 306178539}
   panel: {fileID: 1794223101}
+  visualization: {fileID: 1056285674}
   defaultTarget: {fileID: 1056285678}
   target: {fileID: 1056285678}
   orbitSpeed: 2
@@ -1539,6 +1548,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1003068366}
   - component: {fileID: 1003068367}
+  - component: {fileID: 1003068368}
   m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
@@ -1554,12 +1564,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1003068365}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 2, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 38.638985, y: 0, z: -0.028858034}
+  m_LocalScale: {x: 0.34748006, y: 0.34748, z: 0.34748006}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1056285678}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!108 &1003068367
 Light:
@@ -1623,6 +1633,21 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1003068368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003068365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f06fab9592ac9544c818fb6f41cc9d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  centerObject: {fileID: 0}
+  orbitSpeed: 1
+  orbitAxis: {x: 0, y: 1, z: 0}
 --- !u!1 &1022262780
 GameObject:
   m_ObjectHideFlags: 0
@@ -1863,7 +1888,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 963194228}
-  - {fileID: 1003068366}
   - {fileID: 304298307}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -2512,7 +2536,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1992268642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2521,7 +2545,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 281, y: -16}
+  m_AnchoredPosition: {x: 840, y: -14}
   m_SizeDelta: {x: 240, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1992268644
@@ -2830,3 +2854,4 @@ SceneRoots:
   - {fileID: 975513029}
   - {fileID: 126264328}
   - {fileID: 641185087}
+  - {fileID: 1003068366}

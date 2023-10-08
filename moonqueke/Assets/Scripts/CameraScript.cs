@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraScript : MonoBehaviour
 {
 
-    public GameObject backButton, panel;
+    public GameObject backButton, panel, visualization;
     public Transform defaultTarget, target; // The object you want to orbit around (the Moon).
     public float orbitSpeed = 2.0f; // Adjust this to control the orbit speed.
     public float distance = 0.5f; // Distance from the target (Moon).
@@ -99,6 +99,7 @@ public class CameraScript : MonoBehaviour
         this.target =  this.defaultTarget;
         this.backButton.SetActive(false);
         this.panel.SetActive(false);
+        this.visualization.GetComponent<MoonquakeVisualization>().deleteMarker();
 
         float zoomInput = Input.GetAxis("Mouse ScrollWheel"); // Get the mouse scroll input
 
