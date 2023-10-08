@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.060790762, g: 0.05859001, b: 0.061637998, a: 1}
+  m_IndirectSpecularColor: {r: 0.060795054, g: 0.058593504, b: 0.061641037, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -530,6 +530,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2888599724605344660, guid: 23fedb5cc0d985243b5e328456ecb5d3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1235844666}
+    - targetCorrespondingSourceObject: {fileID: 2888599724605344660, guid: 23fedb5cc0d985243b5e328456ecb5d3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1235844672}
+    - targetCorrespondingSourceObject: {fileID: 2888599724605344660, guid: 23fedb5cc0d985243b5e328456ecb5d3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1235844671}
     - targetCorrespondingSourceObject: {fileID: 5044972548826180860, guid: 23fedb5cc0d985243b5e328456ecb5d3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2076003291}
@@ -1871,6 +1877,33 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1235844671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235844661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding: {x: 0, y: 0, z: 0, w: 0}
+  m_Softness: {x: 0, y: 0}
+--- !u!114 &1235844672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235844661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 1
 --- !u!1001 &1381755533
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2399,9 +2432,9 @@ RectTransform:
   - {fileID: 1644613584}
   m_Father: {fileID: 641185088}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 334, y: -10}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -120, y: -15}
   m_SizeDelta: {x: 240, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1992268644
