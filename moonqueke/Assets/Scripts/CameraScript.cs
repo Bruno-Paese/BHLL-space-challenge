@@ -57,6 +57,39 @@ public class CameraScript : MonoBehaviour
         
     }
 
+    public Transform getTarget()
+    {
+        return this.target;
+    }
+
+    public void setTarget(Transform target)
+    {
+        float zoomInput = Input.GetAxis("Mouse ScrollWheel"); // Get the mouse scroll input
+
+        mainCam.fieldOfView = Mathf.Clamp(mainCam.fieldOfView - zoomInput * zoomSpeed, minFOV, maxFOV);
+
+        this.target = target;
+
+        // Get mouse input.
+        mouseX += Input.GetAxis("Mouse X") * rotationSpeed.x;
+        mouseY -= Input.GetAxis("Mouse Y") * rotationSpeed.y;
+
+        // Limit the vertical rotation to avoid flipping.
+        mouseY = Mathf.Clamp(mouseY, -90, 90);
+
+        // Calculate rotation based on mouse input.
+        Quaternion rotation = Quaternion.Euler(0, 0, 0);
+
+        // Calculate the new camera position based on rotation and distance.
+        Vector3 negDistance = new Vector3(0.0f, 0.0f, -distance);
+        Vector3 position = rotation * negDistance + target.position;
+        mainCam.fieldOfView = Mathf.Clamp(mainCam.fieldOfView - zoomInput * zoomSpeed, minFOV, maxFOV);
+
+        // Apply rotation and position to the camera.
+        transform.rotation = rotation;
+        transform.position = position;
+    }
+
     public void block()
     {
         this.blockMovement = true;

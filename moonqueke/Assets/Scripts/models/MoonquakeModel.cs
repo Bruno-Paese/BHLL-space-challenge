@@ -9,4 +9,5 @@ public class MoonQuakeModel
     public float lon;
     public float magnitude;
     public int moonPhaseAngle;
+    public string date;
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class ListScript : MonoBehaviour
 {
-    public GameObject visualizer, cameraObject, infoPanel;
+    public GameObject visualizer, cameraObject, infoPanel, dayText;
     public GameObject buttonPrefab;
     private int initalyCoord = 220;
     private int increment = -30;
@@ -35,8 +35,11 @@ public class ListScript : MonoBehaviour
     }
     void onClick(MoonQuakeModel quake)
     {
-        visualizer.GetComponent<MoonquakeVisualization>().CreateMarker(quake.lat, quake.lon, quake.timestamp);
-        // cameraObject.GetComponent<CameraScript>().PositionCameraAtLongitudeAndLatitude(quake.lon, quake.lat, 1f);
+        Transform t = visualizer.GetComponent<MoonquakeVisualization>().CreateMarker(quake.lat, quake.lon, quake.timestamp);
+        cameraObject.GetComponent<CameraScript>().setTarget(t);
+        cameraObject.GetComponent<CameraScript>().distance = 0.5f;
+        dayText.GetComponent<TextMeshProUGUI>().text = quake.date.ToString();
+
 
         infoPanel.SetActive(true);
         GameObject.Find("MagnitudeNumber").GetComponent<TextMeshProUGUI>().text = quake.magnitude.ToString();

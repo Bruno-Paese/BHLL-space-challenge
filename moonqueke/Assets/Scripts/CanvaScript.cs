@@ -33,7 +33,8 @@ public class DataGetter : MonoBehaviour
                 timestamp = node["Timestamp"],
                 lat = node["Lat"].AsFloat,
                 lon = node["Long"].AsFloat,
-                magnitude = node["Magnitude"].AsFloat
+                magnitude = node["Magnitude"].AsFloat,
+                date = node["Date"]
             };
 
             moonquakeList.Add(moonquake);
@@ -64,6 +65,7 @@ public class DataGetter : MonoBehaviour
 
                 // Now you can access the parsed data as a list of objects.
                 this.list.GetComponent<ListScript>().createList(moonquakeList);
+
             }
         }
     }
