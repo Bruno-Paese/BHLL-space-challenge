@@ -6,9 +6,9 @@ using UnityEngine;
 
 public class ListScript : MonoBehaviour
 {
-    public GameObject visualizer, cameraObject;
+    public GameObject visualizer, cameraObject, infoPanel;
     public GameObject buttonPrefab;
-    private int initalyCoord = 240;
+    private int initalyCoord = 220;
     private int increment = -30;
 
     public void createList(List<MoonQuakeModel> moonquakes)
@@ -36,7 +36,11 @@ public class ListScript : MonoBehaviour
     void onClick(MoonQuakeModel quake)
     {
         visualizer.GetComponent<MoonquakeVisualization>().CreateMarker(quake.lat, quake.lon, quake.timestamp);
-       // cameraObject.GetComponent<CameraScript>().PositionCameraAtLongitudeAndLatitude(quake.lon, quake.lat, 1f);
+        // cameraObject.GetComponent<CameraScript>().PositionCameraAtLongitudeAndLatitude(quake.lon, quake.lat, 1f);
 
+        infoPanel.SetActive(true);
+        GameObject.Find("MagnitudeNumber").GetComponent<TextMeshProUGUI>().text = quake.magnitude.ToString();
+        GameObject.Find("LatitudeNumber").GetComponent<TextMeshProUGUI>().text = quake.lat.ToString();
+        GameObject.Find("LongitudeNumber").GetComponent<TextMeshProUGUI>().text = quake.lon.ToString();
     }
 }

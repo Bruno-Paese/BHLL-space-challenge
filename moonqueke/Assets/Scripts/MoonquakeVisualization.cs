@@ -7,7 +7,7 @@ public class MoonquakeVisualization : MonoBehaviour
     public GameObject template; // Assign the GameObject prefab you want to place here.
     public float latitude = 0.0f; // Latitude in degrees (-90 to 90).
     public float longitude = 0.0f; // Longitude in degrees (-180 to 180).
-    public float hoverHeight = 0.0f; // Height above the surface.
+    public float hoverHeight = -10f; // Height above the surface.
     public List<MoonQuakeModel> moonQuakes = new List<MoonQuakeModel>();
 
     private int index = 0, max = 200;

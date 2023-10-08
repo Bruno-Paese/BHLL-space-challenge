@@ -11,7 +11,7 @@ public class CameraScript : MonoBehaviour
     public Vector2 rotationSpeed = new Vector2(5.0f, 2.0f); // Control the horizontal and vertical rotation speed.
 
     private Camera mainCam;
-    public float zoomSpeed = 15.0f; // Adjust the zoom speed as needed
+    public float zoomSpeed = 1000.0f; // Adjust the zoom speed as needed
     public float minFOV = 10.0f; // Minimum FOV
     public float maxFOV = 60.0f; // Maximum FOV
 
@@ -56,6 +56,7 @@ public class CameraScript : MonoBehaviour
             }
         
     }
+
     public void block()
     {
         this.blockMovement = true;
