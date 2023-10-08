@@ -1,15 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Net.Http;
-using System;
-using System.Threading.Tasks;
+using SimpleJSON;
 using UnityEngine.Networking;
 
 public class DataGetter : MonoBehaviour
 {
 
     string apiUrl = "https://moonquake-api.azurewebsites.net";
+    public GameObject list;
 
     void Start()
     {
@@ -20,6 +19,27 @@ public class DataGetter : MonoBehaviour
     void Update()
     {
         
+    }
+
+     List<MoonQuakeModel> ParseJSON(string json)
+    {
+        List<MoonQuakeModel> moonquakeList = new List<MoonQuakeModel>();
+        JSONArray jsonArray = JSON.Parse(json).AsArray;
+
+        foreach (JSONNode node in jsonArray)
+        {
+            MoonQuakeModel moonquake = new MoonQuakeModel
+            {
+                timestamp = node["Timestamp"],
+                lat = node["Lat"].AsFloat,
+                lon = node["Long"].AsFloat,
+                magnitude = node["Magnitude"].AsFloat
+            };
+
+            moonquakeList.Add(moonquake);
+        }
+
+        return moonquakeList;
     }
 
     private IEnumerator MakeGetRequest()
@@ -39,8 +59,11 @@ public class DataGetter : MonoBehaviour
             {
                 // Process the response data
                 string responseBody = webRequest.downloadHandler.text;
-                Debug.Log("Response content:");
-                Debug.Log(responseBody);
+                // Parse the JSON array into a list of MoonQuakeModel objects using SimpleJSON.
+                List<MoonQuakeModel> moonquakeList = ParseJSON(responseBody);
+
+                // Now you can access the parsed data as a list of objects.
+                this.list.GetComponent<ListScript>().createList(moonquakeList);
             }
         }
     }

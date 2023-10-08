@@ -8,13 +8,19 @@ public class MoonquakeVisualization : MonoBehaviour
     public float latitude = 0.0f; // Latitude in degrees (-90 to 90).
     public float longitude = 0.0f; // Longitude in degrees (-180 to 180).
     public float hoverHeight = 0.0f; // Height above the surface.
+    public List<MoonQuakeModel> moonQuakes = new List<MoonQuakeModel>();
 
     private int index = 0, max = 200;
     private GameObject[] gameObjects = new GameObject[200];
 
     void Start()
     {
-        CreateMarker(longitude, latitude, "");
+        //CreateMarker(longitude, latitude, "");
+    }
+
+    void Update()
+    {
+        
     }
 
     public void CreateMarker(float lat, float lon, string name)

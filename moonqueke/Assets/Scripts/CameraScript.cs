@@ -11,10 +11,11 @@ public class CameraScript : MonoBehaviour
     public Vector2 rotationSpeed = new Vector2(5.0f, 2.0f); // Control the horizontal and vertical rotation speed.
 
     private Camera mainCam;
-    public float zoomSpeed = 5.0f; // Adjust the zoom speed as needed
+    public float zoomSpeed = 15.0f; // Adjust the zoom speed as needed
     public float minFOV = 10.0f; // Minimum FOV
     public float maxFOV = 60.0f; // Maximum FOV
 
+    private bool blockMovement = false;
     private float mouseX;
     private float mouseY;
 
@@ -32,7 +33,7 @@ public class CameraScript : MonoBehaviour
         
         mainCam.fieldOfView = Mathf.Clamp(mainCam.fieldOfView - zoomInput * zoomSpeed, minFOV, maxFOV);
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && !blockMovement)
             {
                 // Get mouse input.
                 mouseX += Input.GetAxis("Mouse X") * rotationSpeed.x;
@@ -47,11 +48,21 @@ public class CameraScript : MonoBehaviour
                 // Calculate the new camera position based on rotation and distance.
                 Vector3 negDistance = new Vector3(0.0f, 0.0f, -distance);
                 Vector3 position = rotation * negDistance + target.position;
+                mainCam.fieldOfView = Mathf.Clamp(mainCam.fieldOfView - zoomInput * zoomSpeed, minFOV, maxFOV);
 
                 // Apply rotation and position to the camera.
                 transform.rotation = rotation;
                 transform.position = position;
             }
         
+    }
+    public void block()
+    {
+        this.blockMovement = true;
+    }
+
+    public void unlock()
+    {
+        this.blockMovement = false;
     }
 }
