@@ -14,28 +14,31 @@ public class Camera : MonoBehaviour
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked; // Lock the mouse cursor to the center of the screen.
-        Cursor.visible = false; // Hide the cursor.
+       // Cursor.lockState = CursorLockMode.Locked; // Lock the mouse cursor to the center of the screen.
+       // Cursor.visible = false; // Hide the cursor.
     }
 
     private void Update()
     {
-        // Get mouse input.
-        mouseX += Input.GetAxis("Mouse X") * rotationSpeed.x;
-        mouseY -= Input.GetAxis("Mouse Y") * rotationSpeed.y;
+        if (Input.GetMouseButton(0))
+        {
+            // Get mouse input.
+            mouseX += Input.GetAxis("Mouse X") * rotationSpeed.x;
+            mouseY -= Input.GetAxis("Mouse Y") * rotationSpeed.y;
 
-        // Limit the vertical rotation to avoid flipping.
-        mouseY = Mathf.Clamp(mouseY, -90, 90);
+            // Limit the vertical rotation to avoid flipping.
+            mouseY = Mathf.Clamp(mouseY, -90, 90);
 
-        // Calculate rotation based on mouse input.
-        Quaternion rotation = Quaternion.Euler(mouseY, mouseX, 0);
+            // Calculate rotation based on mouse input.
+            Quaternion rotation = Quaternion.Euler(mouseY, mouseX, 0);
 
-        // Calculate the new camera position based on rotation and distance.
-        Vector3 negDistance = new Vector3(0.0f, 0.0f, -distance);
-        Vector3 position = rotation * negDistance + target.position;
+            // Calculate the new camera position based on rotation and distance.
+            Vector3 negDistance = new Vector3(0.0f, 0.0f, -distance);
+            Vector3 position = rotation * negDistance + target.position;
 
-        // Apply rotation and position to the camera.
-        transform.rotation = rotation;
-        transform.position = position;
+            // Apply rotation and position to the camera.
+            transform.rotation = rotation;
+            transform.position = position;
+        }
     }
 }
