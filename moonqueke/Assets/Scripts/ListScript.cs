@@ -13,7 +13,7 @@ public class ListScript : MonoBehaviour
 
     public void createList(List<MoonQuakeModel> moonquakes)
     {
-        foreach(var quake in moonquakes)
+        foreach (var quake in moonquakes)
         {
             createButton(quake);
         }

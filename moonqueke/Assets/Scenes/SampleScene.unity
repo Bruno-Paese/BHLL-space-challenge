@@ -536,6 +536,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2888599724605344660, guid: 23fedb5cc0d985243b5e328456ecb5d3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1235844671}
+    - targetCorrespondingSourceObject: {fileID: 2888599724605344660, guid: 23fedb5cc0d985243b5e328456ecb5d3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1235844673}
     - targetCorrespondingSourceObject: {fileID: 5044972548826180860, guid: 23fedb5cc0d985243b5e328456ecb5d3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2076003291}
@@ -1877,6 +1880,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1235844668 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7562928706129005820, guid: 23fedb5cc0d985243b5e328456ecb5d3, type: 3}
+  m_PrefabInstance: {fileID: 641185087}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235844661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1235844671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1904,6 +1918,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 1
+--- !u!114 &1235844673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235844661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbd43c992efeec04fa89ebd4879bb4ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollRect: {fileID: 1235844668}
+  maxScrollX: 100
+  maxScrollY: 250
 --- !u!1001 &1381755533
 PrefabInstance:
   m_ObjectHideFlags: 0
