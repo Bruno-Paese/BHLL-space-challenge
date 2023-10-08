@@ -5,9 +5,10 @@ using UnityEngine;
 public class CameraScript : MonoBehaviour
 {
 
-    public Transform target; // The object you want to orbit around (the Moon).
+    public GameObject backButton, panel;
+    public Transform defaultTarget, target; // The object you want to orbit around (the Moon).
     public float orbitSpeed = 2.0f; // Adjust this to control the orbit speed.
-    public float distance = 1.0f; // Distance from the target (Moon).
+    public float distance = 0.5f; // Distance from the target (Moon).
     public Vector2 rotationSpeed = new Vector2(5.0f, 2.0f); // Control the horizontal and vertical rotation speed.
 
     private Camera mainCam;
@@ -70,6 +71,38 @@ public class CameraScript : MonoBehaviour
 
         this.target = target;
 
+        // Get mouse input.
+        mouseX += Input.GetAxis("Mouse X") * rotationSpeed.x;
+        mouseY -= Input.GetAxis("Mouse Y") * rotationSpeed.y;
+
+        // Limit the vertical rotation to avoid flipping.
+        mouseY = Mathf.Clamp(mouseY, -90, 90);
+
+        // Calculate rotation based on mouse input.
+        Quaternion rotation = Quaternion.Euler(0, 0, 0);
+
+        // Calculate the new camera position based on rotation and distance.
+        Vector3 negDistance = new Vector3(0.0f, 0.0f, -distance);
+        Vector3 position = rotation * negDistance + target.position;
+        mainCam.fieldOfView = Mathf.Clamp(mainCam.fieldOfView - zoomInput * zoomSpeed, minFOV, maxFOV);
+
+        // Apply rotation and position to the camera.
+        transform.rotation = rotation;
+        transform.position = position;
+
+        this.backButton.SetActive(true);
+        this.panel.SetActive(true);
+    }
+
+    public void resetTarget()
+    {
+        this.target =  this.defaultTarget;
+        this.backButton.SetActive(false);
+        this.panel.SetActive(false);
+
+        float zoomInput = Input.GetAxis("Mouse ScrollWheel"); // Get the mouse scroll input
+
+        mainCam.fieldOfView = Mathf.Clamp(mainCam.fieldOfView - zoomInput * zoomSpeed, minFOV, maxFOV);
         // Get mouse input.
         mouseX += Input.GetAxis("Mouse X") * rotationSpeed.x;
         mouseY -= Input.GetAxis("Mouse Y") * rotationSpeed.y;
